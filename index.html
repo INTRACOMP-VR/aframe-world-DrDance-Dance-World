@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>DrDance-Dance World</title>
+		<script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+		<script src="https://unpkg.com/@softeng-761-2025-team-10/aframe-inspector/dist/aframe-inspector.min.js"></script>
+	</head>
+	<body>
+		<a-scene fog="type: exponential; color: #1a1a3e; density: 0.02">
+			<!-- Cyberpunk lighting - Much brighter -->
+			<a-light type="ambient" color="#4a4a8a" intensity="1"></a-light>
+			<a-light
+				type="point"
+				position="3 5 0"
+				color="#FF00FF"
+				intensity="2.5"
+			></a-light>
+			<a-light
+				type="point"
+				position="-3 5 0"
+				color="#00FFFF"
+				intensity="2.5"
+			></a-light>
+			<a-light
+				type="point"
+				position="0 3 -5"
+				color="#FFFFFF"
+				intensity="1.5"
+			></a-light>
+
+			<!-- Buildings with neon -->
+			<!-- Left building - Pink neon -->
+			<a-box
+				id="building1"
+				position="-4 3 -8"
+				width="2"
+				height="6"
+				depth="2"
+				material="color: #3a3a5e; metalness: 0.6; roughness: 0.4"
+			>
+				<!-- Brighter neon strips -->
+				<a-box
+					position="1.01 0 0"
+					width="0.1"
+					height="5"
+					depth="0.3"
+					material="color: #FF0080; emissive: #FF0080; emissiveIntensity: 2"
+					animation="property: material.emissiveIntensity; from: 1.5; to: 3; loop: true; dur: 1000; dir: alternate; easing: easeInOutSine"
+				></a-box>
+			</a-box>
+
+			<!-- Center building - Cyan neon -->
+			<a-box
+				id="building2"
+				position="0 4 -10"
+				width="3"
+				height="8"
+				depth="3"
+				material="color: #2a2a5e; metalness: 0.6; roughness: 0.4"
+			>
+				<a-box
+					position="0 3 1.51"
+					width="2.5"
+					height="0.4"
+					depth="0.1"
+					material="color: #00FFFF; emissive: #00FFFF; emissiveIntensity: 2"
+					animation="property: material.emissiveIntensity; from: 1.5; to: 3; loop: true; dur: 1200; dir: alternate; easing: easeInOutSine"
+				></a-box>
+				<a-box
+					position="0 1 1.51"
+					width="2.5"
+					height="0.4"
+					depth="0.1"
+					material="color: #00FFFF; emissive: #00FFFF; emissiveIntensity: 2"
+					animation="property: material.emissiveIntensity; from: 1.5; to: 3; loop: true; dur: 1200; dir: alternate; delay: 600; easing: easeInOutSine"
+				></a-box>
+			</a-box>
+
+			<!-- Right building - Purple neon -->
+			<a-box
+				id="building3"
+				position="4 3.5 -8"
+				width="2.5"
+				height="7"
+				depth="2.5"
+				material="color: #2a2a4e; metalness: 0.6; roughness: 0.4"
+			>
+				<a-box
+					position="0 2.5 1.26"
+					width="2"
+					height="0.5"
+					depth="0.1"
+					material="color: #AA00FF; emissive: #AA00FF; emissiveIntensity: 2"
+					animation="property: material.emissiveIntensity; from: 1.5; to: 3; loop: true; dur: 800; dir: alternate; easing: easeInOutSine"
+				></a-box>
+			</a-box>
+
+			<!-- Brighter floating geometric shapes -->
+			<a-octahedron
+				position="-2 2 -3"
+				radius="0.5"
+				material="color: #FF0080; emissive: #FF0080; emissiveIntensity: 2; metalness: 1; roughness: 0"
+				animation="property: rotation; to: 360 360 0; loop: true; dur: 8000; easing: linear"
+				animation__float="property: position; to: -2 3 -3; loop: true; dir: alternate; dur: 3000; easing: easeInOutSine"
+			></a-octahedron>
+
+			<a-icosahedron
+				position="2 2.5 -4"
+				radius="0.4"
+				material="color: #00FFFF; emissive: #00FFFF; emissiveIntensity: 2; metalness: 1; roughness: 0"
+				animation="property: rotation; to: 0 360 360; loop: true; dur: 10000; easing: linear"
+				animation__float="property: position; to: 2 3.5 -4; loop: true; dir: alternate; dur: 3500; easing: easeInOutSine"
+			></a-icosahedron>
+
+			<!-- Brighter grid floor -->
+			<a-plane
+				id="floor"
+				position="0 0 -5"
+				rotation="-90 0 0"
+				width="20"
+				height="20"
+				material="color: #2a2a4a; metalness: 0.7; roughness: 0.3"
+			></a-plane>
+
+			<!-- Brighter grid lines on floor -->
+			<a-entity id="grid" position="0 0.01 -5">
+				<!-- Horizontal lines -->
+				<a-box
+					position="0 0 -5"
+					width="20"
+					height="0.05"
+					depth="0.15"
+					material="color: #FF0080; emissive: #FF0080; emissiveIntensity: 2"
+				></a-box>
+				<a-box
+					position="0 0 0"
+					width="20"
+					height="0.05"
+					depth="0.15"
+					material="color: #00FFFF; emissive: #00FFFF; emissiveIntensity: 2"
+				></a-box>
+				<a-box
+					position="0 0 5"
+					width="20"
+					height="0.05"
+					depth="0.15"
+					material="color: #FF0080; emissive: #FF0080; emissiveIntensity: 2"
+				></a-box>
+
+				<!-- Vertical lines -->
+				<a-box
+					position="-5 0 0"
+					width="0.15"
+					height="0.05"
+					depth="20"
+					material="color: #AA00FF; emissive: #AA00FF; emissiveIntensity: 2"
+				></a-box>
+				<a-box
+					position="0 0 0"
+					width="0.15"
+					height="0.05"
+					depth="20"
+					material="color: #00FFFF; emissive: #00FFFF; emissiveIntensity: 2"
+				></a-box>
+				<a-box
+					position="5 0 0"
+					width="0.15"
+					height="0.05"
+					depth="20"
+					material="color: #FF0080; emissive: #FF0080; emissiveIntensity: 2"
+				></a-box>
+			</a-entity>
+
+			<!-- Brighter particle-like floating lights -->
+			<a-sphere
+				position="-3 3 -6"
+				radius="0.2"
+				material="color: #FF0080; emissive: #FF0080; emissiveIntensity: 3"
+				animation="property: position; to: -3 4.5 -6; loop: true; dir: alternate; dur: 2500; easing: easeInOutSine"
+			></a-sphere>
+
+			<a-sphere
+				position="3 2.5 -7"
+				radius="0.2"
+				material="color: #00FFFF; emissive: #00FFFF; emissiveIntensity: 3"
+				animation="property: position; to: 3 4 -7; loop: true; dir: alternate; dur: 3000; easing: easeInOutSine"
+			></a-sphere>
+
+			<a-sphere
+				position="0 3.5 -5"
+				radius="0.2"
+				material="color: #AA00FF; emissive: #AA00FF; emissiveIntensity: 3"
+				animation="property: position; to: 0 5 -5; loop: true; dir: alternate; dur: 2800; easing: easeInOutSine"
+			></a-sphere>
+
+			<!-- Lighter cyberpunk sky -->
+			<a-sky color="#1a1a3e"></a-sky>
+
+			<!-- Camera -->
+			<a-camera position="0 1.6 0" look-controls wasd-controls></a-camera>
+		</a-scene>
+	</body>
+</html>
